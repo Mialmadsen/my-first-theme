@@ -10,20 +10,39 @@
           "post_type" => "todays-recipe-card",
           "post_per_page" => 4
         );
-        
+
+        <?php if($loop->have_posts()): ?>
+          <?php while($loop->have_posts()): $loop->the_post() ?>
+          
+            <?php 
+            // Fetch recipe data
+            $recipeImage = get_field("todays_recipes_card_image_");
+            $recipeCardHeader = get_field("todays_recipe");
+            $recipeCardText = get_field("todays_recipes_text_");
+            $recipeCardCategory = get_field("todays_recipes_category_");
+            ?>
+            <!-- HTML output -->
+            <div class="w3-third">
+              <p><?php echo esc_html($bandMemberName) ?></p>
+              <img src="<?php echo esc_url($BandMemberImage["url"]) ?>" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+            </div>
+            
+         <?php endwhile ?>
+         <?php wp_reset_postdata() ?>
+        <?php endif ?>
         <div class="todays_recipes_content_block">
           <div class="todays_recipes_content_block_image">
-            <img src="https://picsum.photos/300/175" alt="">
+            <img src="<?php echo esc_url($recipeImage["url"]) ?>" alt="">
           </div>
           <div class="todays_recipes_content_block_text">
             <div class="todays_recipes_content_block_text_top">
-              <h5>FoodName</h5>
-              <p>Lorem Ipsum is simply dummy text of the</p>
+              <h5><?php echo esc_html($recipeCardHeader) ?></h5>
+              <p><?php echo esc_html($recipeCardText) ?></p>
             </div>
             <div class="todays_recipes_content_block_text_bottom">
               <div class="todays_recipes_content_block_bottom_area">
                 <div class="todays_recipes_content_block_bottom_area_left" data-category="seafood">
-                  <p id="cat-test" data-category="seafood"></p>
+                  <p ><?php echo esc_html($recipeCardCategory) ?></p>
                   <p>Recipe</p>
                 </div>
                 <div class="todays_recipes_content_block_bottom_area_right">
