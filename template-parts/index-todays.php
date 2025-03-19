@@ -5,11 +5,13 @@
 
       
       <div class="todays_recipes_content">
-        <?php
-        $arguments = array(
-          "post_type" => "todays-recipe-card",
-          "post_per_page" => 4
-        );?>
+      <?php
+            $arguments = array(
+              "post_type" => "todays-recipe-card",
+              "post_per_page" => 4
+             );
+             $loop = new WP_Query($arguments);
+             ?>
 
         <?php if($loop->have_posts()): ?>
           <?php while($loop->have_posts()): $loop->the_post() ?>
@@ -23,6 +25,7 @@
             ?>
             <!-- HTML output -->
             <div class="todays_recipes_content_block">
+           
           <div class="todays_recipes_content_block_image">
             <img src="<?php echo esc_url($recipeImage["url"]) ?>" alt="">
           </div>
@@ -48,9 +51,10 @@
           </div>
         </div>
             
-         <?php endwhile ?>
+        <?php endwhile ?>
          <?php wp_reset_postdata() ?>
         <?php endif ?>
+      
        
       </div>
 
