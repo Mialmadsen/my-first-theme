@@ -2,7 +2,7 @@
 $heroTextSmallHeader1 = get_field("small_header_1");
 $heroTextHeader = get_field("big_header");
 $heroTextSmallHeader2 = get_field("small_header_2");
-$
+
 
 ?>
 
