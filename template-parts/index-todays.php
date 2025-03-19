@@ -22,15 +22,7 @@
             $recipeCardCategory = get_field("todays_recipes_category_");
             ?>
             <!-- HTML output -->
-            <div class="w3-third">
-              <p><?php echo esc_html($bandMemberName) ?></p>
-              <img src="<?php echo esc_url($BandMemberImage["url"]) ?>" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
-            </div>
-            
-         <?php endwhile ?>
-         <?php wp_reset_postdata() ?>
-        <?php endif ?>
-        <div class="todays_recipes_content_block">
+            <div class="todays_recipes_content_block">
           <div class="todays_recipes_content_block_image">
             <img src="<?php echo esc_url($recipeImage["url"]) ?>" alt="">
           </div>
@@ -55,6 +47,11 @@
             </div>
           </div>
         </div>
+            
+         <?php endwhile ?>
+         <?php wp_reset_postdata() ?>
+        <?php endif ?>
+       
       </div>
 
     </section>
