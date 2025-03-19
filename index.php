@@ -6,6 +6,7 @@
 			<?php get_template_part("template-parts/index", "hero") ?>
       <?php get_template_part("template-parts/index", "todays") ?>
       <?php get_template_part("template-parts/index", "categories") ?>
+      <?php get_template_part("template-parts/index", "recipe") ?>
 
 
 		<?php endwhile ?>
