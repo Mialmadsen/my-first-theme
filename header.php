@@ -18,10 +18,10 @@
       <div class="menu-container">
         <ul>
           <li>
-            <a href="/index.html">Home</a>
+            <a href="<?php echo get_permalink(get_page_by_path("sample-page")->ID); ?>">Home</a>
           </li>
           <li>
-            <a href="recipes.html">Recipes</a>
+            <a href="<?php echo get_permalink(get_page_by_path("recipe")->ID); ?>">Recipe</a>
           </li>
           <li>
             <a href="soupsselection.html">Soups selection</a>

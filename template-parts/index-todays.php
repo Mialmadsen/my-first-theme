@@ -17,7 +17,7 @@
           
             <?php 
             // Fetch recipe data
-            $recipeImage = get_field("todays_recipes_card_image_");
+            $recipeCardImage = get_field("todays_recipes_card_image_");
             $recipeCardHeader = get_field("todays_recipe");
             $recipeCardText = get_field("todays_recipes_text_");
             $recipeCardCategory = get_field("todays_recipes_category_");
@@ -26,7 +26,7 @@
             <div class="todays_recipes_content_block">
            
           <div class="todays_recipes_content_block_image">
-            <img src="<?php echo esc_url($recipeImage["url"]) ?>" alt="">
+            <img src="<?php echo esc_url($recipeCardImage["url"]) ?>" alt="">
           </div>
           <div class="todays_recipes_content_block_text">
             <div class="todays_recipes_content_block_text_top">
