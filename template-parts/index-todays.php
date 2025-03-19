@@ -3,7 +3,6 @@
         <h2>Today's recipes</h2>
       </div>
 
-      
       <div class="todays_recipes_content">
       <?php
             $arguments = array(
@@ -45,7 +44,6 @@
                     <a href="#">How to</a>
                   </button>
                 </div>
-
               </div>
             </div>
           </div>

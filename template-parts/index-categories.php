@@ -1,66 +1,37 @@
 <section class="categories">
-      <div class="categories_selection_headline">
+    <div class="categories_selection_headline">
         <h2>Category selection</h2>
-      </div>
+    </div>
       <div class="categories_selection_box">
-      <div class="category_selection_box_vegetarian">
-        <div class="category_selection_box_icon">
-          <i class="fa-solid fa-leaf" id="veg-icon"></i>
-        </div>
-        <div class="category_selection_box_text">
-          <p>Vegetarian</p>
-        </div>
-      </div>
-      <div class="category_selection_box_seafood">
-        <div class="category_selection_box_icon">
-          <i class="fa-solid fa-fish" id="fish-icon"></i>
-        </div>
-        <div class="category_selection_box_text">
-          <p>Seafood</p>
-        </div>
-      </div>
-      <div class="category_selection_box_pastas">
-        <div class="category_selection_box_icon">
-          <i class="fa-solid fa-bowl-food" id="pastas-icon"></i>
-        </div>
-        <div class="category_selection_box_text">
-          <p>Pastas</p>
-        </div>
-      </div>
-      <div class="category_selection_box_chicken">
-        <div class="category_selection_box_icon">
-          <i class="fa-solid fa-drumstick-bite" id="chicken-icon"></i>
-        </div>
-        <div class="category_selection_box_text">
-          <p>Chicken</p>
-        </div>
-      </div>
-      <div class="category_selection_box_snacks">
-        <div class="category_selection_box_icon">
-          <i class="fa-solid fa-cookie-bite" id="snacks-icon"></i>
-        </div>
-        <div class="category_selection_box_text">
-          <p>Snacks</p>
-        </div>
-      </div>
-      <div class="category_selection_box_meats">
-        <div class="category_selection_box_icon">
-          <i class="fa-solid fa-bacon" id="meats-icon"></i>
-        </div>
-        <div class="category_selection_box_text">
-          <p>Beef/Pork</p>
-        </div>
-      </div>
-      <div class="category_selection_box_desserts">
-        <div class="category_selection_box_icon">
-          <i class="fa-solid fa-ice-cream" id="desserts-icon"></i>
-        </div>
-        <div class="category_selection_box_text">
-          <p>Desserts</p>
+      <?php
+            $arguments = array(
+              "post_type" => "category-selection",
+              "post_per_page" => -1
+             );
+             $loop = new WP_Query($arguments);
+             ?>
 
+        <?php if($loop->have_posts()): ?>
+          <?php while($loop->have_posts()): $loop->the_post() ?>
+          
+            <?php 
+            // Fetch recipe data
+            $categoryIcon = get_field("category_icon");
+            $categoryName = get_field("category_name_");
+            ?>
+        <div class="category_selection_box_vegetarian">
+        <div class="category_selection_box_icon">
+        <img src="<?php echo esc_url($categoryIcon["url"]) ?>">
         </div>
+        <div class="category_selection_box_text">
+          <p><?php echo esc_html($categoryName) ?></p>
+        </div>
+
       </div>
+       <?php endwhile ?>
+         <?php wp_reset_postdata() ?>
+        <?php endif ?>
       </div>
       
       
-    </section>
+</section>
