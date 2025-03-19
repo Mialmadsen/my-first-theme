@@ -9,7 +9,7 @@
         $arguments = array(
           "post_type" => "todays-recipe-card",
           "post_per_page" => 4
-        );
+        );?>
 
         <?php if($loop->have_posts()): ?>
           <?php while($loop->have_posts()): $loop->the_post() ?>
